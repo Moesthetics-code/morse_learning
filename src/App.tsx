@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Radio, BookOpen, RotateCcw, GraduationCap, Brain, Headphones, Timer, Trophy, Mic, FileText, HardDrive, Volume2, BarChart } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Radio, BookOpen, RotateCcw, GraduationCap, Brain, Headphones, Timer, Trophy, Mic, FileText, HardDrive, Volume2, BarChart, Github, ExternalLink } from 'lucide-react';
 import MorseTranslator from './components/MorseTranslator';
 import TrainingMode from './components/TrainingMode';
 import LessonsMode from './components/LessonsMode';
@@ -10,6 +10,13 @@ import AchievementsSystem, { useAchievements, Achievement } from './components/A
 import DictationMode from './components/DictationMode';
 import CustomListsManager, { CustomList } from './components/CustomListsManager';
 import OfflineStorageManager, { UserProgress } from './components/OfflineStorageManager';
+
+// Configuration GitHub - Remplacez par vos vraies informations
+const GITHUB_CONFIG = {
+  username: 'Moesthetics-code',
+  profileUrl: 'https://github.com/Moesthetics-code',
+  displayName: 'Mohamed Ndiaye'
+};
 
 type ActiveTab = 'translator' | 'training' | 'lessons' | 'mnemonics' | 'listening' | 'speedtest' | 'achievements' | 'dictation' | 'customlists' | 'storage';
 
@@ -328,11 +335,54 @@ export default function App() {
             </div>
           </div>
           
-          <div className="border-t border-gray-200 pt-6 mt-8 text-center text-gray-500 text-sm">
-            <p>© 2025 Morse - École complète de code Morse avec fonctionnalités avancées</p>
-            <p className="mt-1">
-              Modes: Traduction • Leçons • Entraînement • Écoute • Vitesse • Dictée • Succès • Données
-            </p>
+          {/* Section Développeur avec GitHub */}
+          <div className="border-t border-gray-200 pt-6 mt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              {/* Info projet */}
+              <div className="text-center md:text-left">
+                <p className="text-gray-500 text-sm">
+                  © 2025 Morse - École complète de code Morse avec fonctionnalités avancées
+                </p>
+                <p className="mt-1 text-gray-500 text-sm">
+                  Modes: Traduction • Leçons • Entraînement • Écoute • Vitesse • Dictée • Succès • Données
+                </p>
+              </div>
+
+              {/* Section Développeur avec GitHub */}
+              <div className="flex items-center space-x-4">
+                <div className="text-right">
+                  <p className="text-xs text-gray-500">Développé par</p>
+                  <p className="font-medium text-slate-800 text-sm">{GITHUB_CONFIG.displayName}</p>
+                </div>
+                
+                {/* GitHub Profile Link avec photo */}
+                <a
+                  href={GITHUB_CONFIG.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg transition-colors group"
+                >
+                  {/* Photo de profil GitHub */}
+                  <img
+                    src={`https://github.com/${GITHUB_CONFIG.username}.png?size=32`}
+                    alt={`${GITHUB_CONFIG.displayName} GitHub Profile`}
+                    className="w-6 h-6 rounded-full border border-gray-300"
+                    loading="lazy"
+                  />
+                  
+                  {/* Icône GitHub */}
+                  <Github className="w-4 h-4 text-gray-600 group-hover:text-slate-800" />
+                  
+                  {/* Username */}
+                  <span className="text-sm text-gray-600 group-hover:text-slate-800 font-medium">
+                    {GITHUB_CONFIG.username}
+                  </span>
+                  
+                  {/* Icône lien externe */}
+                  <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-slate-600" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
