@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Zoom 80% uniquement sur mobile */
+@media screen and (max-width: 768px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
+/* Alternative pour très petits écrans (optionnel) */
+@media screen and (max-width: 480px) {
+  html {
+    zoom: 0.75; /* Zoom encore plus réduit sur très petits écrans */
+  }
+}
